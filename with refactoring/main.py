@@ -1,5 +1,5 @@
 from class_User import User
-import class_Bank
+from class_Bank import Bank
 import sqlite3
 
 def main_menu():
@@ -7,12 +7,15 @@ def main_menu():
     while True:
         print("1. Create an account")
         print("2. Log into account")
+        print("3. Show DB")
         print("0. Exit")
         user_choice = int(input('>'))
         if user_choice == 1:
             user.create_account()
         elif user_choice == 2:
             user.log_into_account()
+        elif user_choice == 3:
+            Bank.show_DB()
         elif user_choice == 0:
             print('Bye!')
             user.user_disconnect()

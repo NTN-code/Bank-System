@@ -117,5 +117,11 @@ class Bank():
         cls.cur.execute(""" UPDATE card SET balance=? where number=?""",[balance,card_number])
         cls.conn.commit()
 
+    @classmethod
+    def show_DB(cls):
+        print("Table card")
+        print("ID\tcard \t\t\t\t PIN\tbalance")
+        for row in cls.cur.execute("""SELECT * FROM card"""):
+            print(row)
 
 
