@@ -1,4 +1,5 @@
 from class_Bank import Bank
+from class_BinaryTree import *
 
 class User(Bank):
     def __init__(self):
@@ -96,3 +97,17 @@ class User(Bank):
             elif user_choice == 0:
                 self.user_disconnect()
                 exit()
+
+    def show_tree(self):
+        numbers,balance = Bank.get_data_from_table_to_binary_tree()
+        tree = Node(numbers[0],balance[0])
+        for i in range(1,len(numbers)):
+            tree.add(numbers[i],balance[i])
+        printTree(tree)
+
+    def show_heap(self):
+        numbers,balance = Bank.get_data_from_table_to_heap()
+        tree = Node(numbers[0],balance[0])
+        for i in range(1,len(numbers)):
+            tree.add(numbers[i],balance[i])
+        printTree(tree)

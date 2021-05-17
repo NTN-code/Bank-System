@@ -118,10 +118,27 @@ class Bank():
         cls.conn.commit()
 
     @classmethod
-    def show_DB(cls):
+    def show_table(cls):
         print("Table card")
         print("ID\tcard \t\t\t\t PIN\tbalance")
         for row in cls.cur.execute("""SELECT * FROM card"""):
             print(row)
 
+    @classmethod
+    def get_data_from_table_to_binary_tree(cls):
+        numbers = []
+        balance = []
+        for row in cls.cur.execute("""SELECT number,balance FROM card"""):
+            numbers.append(row[0])
+            balance.append(int(row[1]))
+        return numbers,balance
+
+    @classmethod
+    def get_data_from_table_to_heap(cls):
+        numbers = []
+        balance = []
+        for row in cls.cur.execute("""SELECT number,balance FROM card ORDER BY balance DESC """):
+            numbers.append(row[0])
+            balance.append(int(row[1]))
+        return numbers, balance
 
