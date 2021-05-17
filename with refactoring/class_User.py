@@ -100,6 +100,8 @@ class User(Bank):
 
     def show_tree(self):
         numbers,balance = Bank.get_data_from_table_to_binary_tree()
+        if numbers == None and balance == None:
+            print("Table is empty")
         tree = Node(numbers[0],balance[0])
         for i in range(1,len(numbers)):
             tree.add(numbers[i],balance[i])
@@ -107,6 +109,8 @@ class User(Bank):
 
     def show_heap(self):
         numbers,balance = Bank.get_data_from_table_to_heap()
+        if numbers == None and balance == None:
+            print("Table is empty")
         tree = Node(numbers[0],balance[0])
         for i in range(1,len(numbers)):
             tree.add(numbers[i],balance[i])
